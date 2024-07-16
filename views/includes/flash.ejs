@@ -1,0 +1,13 @@
+<div style="margin-top: 4.5rem; margin-bottom: 0rem;"><% if(successMsg && successMsg.length){%>
+  <div class="alert alert-success alert-dismissible fade show col-10 offset-1" role="alert">
+      <%= successMsg%>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <%}%> 
+    <% if(errorMsg && errorMsg .length){%>
+      <div class="alert alert-danger alert-dismissible fade show col-10 offset-1" role="alert">
+          <%= errorMsg%>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+   <%}%>
+  </div>

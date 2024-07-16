@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <br>
+    <div class="row">
+        <div class="col-10 offset-1">
+    <h3>Edit Your Event</h3>
+    <form action="/casarentals/<%= listing._id %>/ticket" method="POST" class="needs-validation"
+        >
+        <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input name="ticket[name]" type="text" class="form-control" required>
+            <!-- <div class="valid-feedback">
+                Title looks good!
+              </div> -->
+        </div> 
+        <div class="mb-2">
+            <label for="Quantity" class="form-label">Quantity</label>
+            <input name="ticket[Quantity]" type="number" class="form-control" required>
+            <!-- <div class="valid-feedback">
+                Title looks good!
+              </div> -->
+        </div> 
+        <br>  
+        <button type="submit" class="btn btn-dark edit-btn">Proceed to Pay</button>
+    </form>
+</div>  
+</div>  
+</body>
+</html>

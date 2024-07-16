@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-1" style="margin-top: 100px !important;">
+        <% for (var i = 0; i < allbookings.length; i++) { %>
+            <% const bookings = allbookings[i]; %>
+            <% if (curUser._id.equals(bookings.userdetails)) { %>  
+                <div class="card col text-bg-light " style="margin: 1rem; max-width: 25rem;">
+                    <div class="card-header"><%= bookings.villaname %></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Name: <%= bookings.name %></h5>
+                      <p class="card-text">Booking id: <%= bookings._id %></p>
+                      <p class="card-text">Villa id: <%= bookings.hotelinfo %></p>
+                      <p class="card-text">Quantity: <%= bookings.Quantity %></p>
+                      <p class="card-text">Date: <%= new Date(bookings.createdAt).toLocaleDateString('en-GB') %></p>
+            <p class="card-text">Time: <%= new Date(bookings.createdAt).toString().split(" ")[4] %></p>
+            <hr>
+            <% if(curUser && (curUser.username==='adminsubhajit' || curUser._id.equals(review.author._id))) {%>
+                <form class="mb-2" method="POST"
+                action="/casarentals/bookings/<%= bookings._id %>?_method=DELETE">
+                <div style="text-align:center !important;">
+                    <button class="btn btn-sm btn-dark" >Delete</button>
+                </div>
+                  
+                </form>
+                <%}%>
+                    </div>
+                  </div> 
+                
+            <% } %>
+        <% } %>
+               
+            </div>
+   
+</body>
+</html>

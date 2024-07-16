@@ -1,0 +1,86 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/casarentals" novalidate  class="needs-validation"
+    enctype="multipart/form-data" >
+        <div class="mb-2">
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" placeholder="Add a Catchy Title" type="text" class="form-control" required>
+            <div class="valid-feedback">
+                Looks Good
+              </div>
+        </div>
+        
+        <div class="mb-2">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]"  placeholder="Enter Description" class="form-control" required></textarea>
+            <div class="invalid-feedback">
+                Please enter a short description
+              </div>
+        </div>
+        <div class="row">
+        <div class="mb-2 col-md-6">
+            <label for="image" class="form-label">Upload Image</label>
+            <input name="listing[image]"  type="file" class="form-control" required>
+        </div>
+        <div class="mb-2 col-md-6">
+            <label for="category" class="form-label">Select Your Villa Type</label>
+            <select class="form-select" name="listing[category]" aria-label="Default select example">
+                <option selected>Choose Category</option>
+                <option value="Room">Room</option>
+                <option value="Iconic City">Iconic City</option>
+                <option value="Mountain">Mountain</option>
+                <option value="Castles">Castles</option>
+                <option value="Pools">Pools</option>
+                <option value="Camping">Camping</option>
+                <option value="Forest">Forest</option>
+                <option value="Farms">Farms</option>
+                <option value="Arctic">Arctic</option>
+                <option value="Domes">Domes</option>
+                <option value="Sea Beach">Sea Beach</option>
+            </select>
+        </div>        
+        </div>
+        <div class="row">
+            <div class="mb-2 col-md-6">
+                <label for="price" class="form-label">Price &#8377;/night</label>
+                <input name="listing[price]" placeholder="1200" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Price should be valid
+                  </div>
+            </div>
+            <div class="mb-2 col-md-6">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Country name should be valid
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-2 col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" placeholder="Jaipur,Rajasthan" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Location should be valid
+                  </div>
+            </div>
+            <div class="mb-2 col-md-6">
+                <label for="contactinfo" class="form-label">Contact Number</label>
+                <input name="listing[contactinfo]" placeholder="+XXNNNNNNNNNN" type="text" class="form-control" required>
+                <div class="invalid-feedback">
+                    Contact Number should be valid
+                  </div>
+            </div>
+        </div>
+        
+        <button class="btn btn-dark add-btn">Add</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>
+</html>
