@@ -85,12 +85,12 @@
         <div class="navbar-nav ms-auto">
           <% if (typeof newListingname == 'undefined' || newListingname == ''|| newListingname ==123) { %> 
             <form class="d-flex" role="search" action="/casarentals/search" method="GET">
-              <input class="form-control me-2 search-inp" id="searchbar" type="search" name="destination[name]" placeholder="Search Destinations">
+              <input style="width: 22rem; margin-left: 9rem;" class="form-control me-2 search-inp" id="searchbar" type="search" name="destination[name]" placeholder="Search Destinations  |  Country">
               <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
             </form>
           <% } else { %>
             <form class="d-flex" role="search" action="/casarentals/search" method="GET">
-              <input class="form-control me-2 search-inp" id="searchbar" type="search" name="destination[name]" value="<%= newListingname %>">
+              <input style="width: 22rem; margin-left: 9rem; text-align: center; font-weight: 500;" class="form-control me-2 search-inp" id="searchbar" type="search" name="destination[name]" value="<%= newListingname %>">
               <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
             </form>
           <% } %>
