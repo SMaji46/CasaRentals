@@ -127,7 +127,7 @@ module.exports.createlisting=async(req,res,next)=>{
     let savedList=await newListing.save();
     //console.log(savedList);
     req.flash("success","Your Hotel Information added!")
-    res.redirect("/casarentals");
+    res.redirect(`/casarentals/${savedList._id}`);
 };
 
 //Edit Route
