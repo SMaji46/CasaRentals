@@ -9,6 +9,7 @@ module.exports.listingSchema=joi.object({
         contactinfo:joi.string().required(),
         image:joi.string().allow("",null),
         category:joi.string().required(),
+        booking:joi.string().required(),       
     }).required(),
 });
 module.exports.reviewSchema=joi.object({
