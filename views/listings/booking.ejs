@@ -14,7 +14,7 @@
                       <p class="card-text">Date: <%= new Date(bookings.createdAt).toLocaleDateString('en-GB') %></p>
             <p class="card-text">Time: <%= new Date(bookings.createdAt).toString().split(" ")[4] %></p>
             <hr>
-            <% if(curUser && (curUser.username==='adminsubhajit' || curUser._id.equals(review.author._id))) {%>
+            <% if(curUser && (curUser.username==='adminsubhajit' || curUser._id.equals(bookings.userdetails))) {%>
                 <form class="mb-2" method="POST"
                 action="/casarentals/bookings/<%= bookings._id %>?_method=DELETE">
                 <div style="text-align:center !important;">
