@@ -41,6 +41,11 @@ const listingSchema = new Schema({
       enum: ["Room", "Iconic City", "Mountain", "Castles", "Pools", "Camping", "Forest", "Farms", "Arctic", "Domes", "Sea Beach"],
       required: true
     },
+    booking: {
+      type: String,
+      enum: ["On", "Off"],
+      default: "On"
+    },
     geometry: {
       type: {
         type: String, // Don't do `{ location: { type: String } }`

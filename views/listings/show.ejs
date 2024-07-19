@@ -43,7 +43,12 @@
     <br>
     <div class="btns">
     <%if(curUser){%>
-        <a href="/casarentals/<%=listing._id %>/ticket" class="btn btn-warning buy-btn col-1 offset-3 btn-pad">Reserve</a>
+        <% if (listing.booking==="On") { %> 
+            <a href="/casarentals/<%=listing._id %>/ticket" class="btn btn-warning buy-btn col-1 offset-3 btn-pad">Reserve</a>
+          <% } else { %>
+            <button type="button" style="padding: auto;" class="btn btn-warning disabled-btn col-1 offset-3 btn-pad"disabled>Closed</button>
+          <% } %>
+        
         <%}%>
     <% if(curUser && (curUser.username==='adminsubhajit' || curUser._id.equals(listing.owner._id))) {%>
             <a href="/casarentals/<%=listing._id %>/edit" class="btn btn-dark edit-btn col-1 offset-3 btn-pad">Edit</a>
@@ -55,7 +60,7 @@
     </div>
     </div>
   
-    <div class="col-8 offset-3 mb-3">
+    <div class="col-6 offset-3 mb-3">
         <hr>
         <%if(curUser){%>
         <h4>Leave a Review</h4>
@@ -80,7 +85,7 @@
 
             <div class="mb-3 mt-3">
                 <label for="comment" class="form-label">Comments</label>
-                <textarea  placeholder="Add comment for review" name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+                <textarea  placeholder="Add comment for review" name="review[comment]" id="comment" cols="12" rows="5" class="form-control" required></textarea>
                 <div class="invalid-feedback">Please add comment for review!</div>
             </div>
             <button class="btn btn-outline-success">Submit</button>

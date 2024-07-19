@@ -37,7 +37,7 @@
             <div class="mb-2 col-md-6">
                 <label for="category" class="form-label">Select Your Villa Type</label>
                 <select class="form-select" name="listing[category]" aria-label="Default select example">
-                    <option selected>Choose Category</option>
+                    <option selected><%= listing.category %></option>
                     <option value="Room">Room</option>
                     <option value="Iconic City">Iconic City</option>
                     <option value="Mountain">Mountain</option>
@@ -58,18 +58,29 @@
 
 
         <div class="row">
-            <div class="mb-2 col-md-5">
+            <div class="mb-2 col-md-4">
                 <label for="price" class="form-label">Price &#8377;/night</label>
                 <input name="listing[price]" value="<%= listing.price %>" type="text" class="form-control" required>
                 <div class="invalid-feedback">Price should be valid
                   </div>
             </div>
-            <div class="mb-2 col-md-7">
+            <div class="mb-2 col-md-4">
                 <label for="country" class="form-label">Country</label>
                 <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required>
                 <div class="invalid-feedback">Country name should be valid
                   </div>
             </div>
+            <div class="mb-2 col-md-4">
+                <label for="category" class="form-label">Booking</label>
+                <select class="form-select" name="listing[booking]" aria-label="Default select example">
+                    <option selected><%= listing.booking %></option>
+                    <% if(listing.booking ==="On"){ %>
+                    <option value="Off">Off</option>
+                    <% } else { %>
+                        <option value="On">On</option>
+                        <% } %>
+                </select>
+            </div>   
         </div>
           
         <div class="row">
