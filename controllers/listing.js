@@ -88,7 +88,7 @@ module.exports.postticket=async(req,res)=>{
     await listing.save();
     await newticket.save();
     req.flash("success","Booking id Generated Successfully!")
-    res.redirect("/casarentals");
+    res.redirect(`/casarentals/${listing._id}`);
 };
 
 
@@ -102,7 +102,12 @@ module.exports.showListing=async(req,res)=>{
         populate:{
             path:"author",
         },
-    }).populate("owner");
+    }).populate("owner").populate({
+        path:"tickets",
+        populate:{
+            path:"userdetails",
+        },
+    });
     if(!listing)
     {
         req.flash("error","Hotel information you searched does not exist!");

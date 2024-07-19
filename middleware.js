@@ -1,6 +1,6 @@
 const Listing=require("./models/listing.js");
 const Review=require("./models/review.js");
-const{listingSchema,reviewSchema}=require("./schema.js");
+const{listingSchema,reviewSchema,ticketSchema}=require("./schema.js");
 const ExpressError=require("./utils/ExpressError.js");
 
 module.exports.isLoggedIn=(req,res,next)=>{
@@ -51,6 +51,15 @@ module.exports.validateListing=(req,res,next)=>{
 
 module.exports.validateReview=(req,res,next)=>{
     let {error}=reviewSchema.validate(req.body);
+    if(error){
+        let errMsg=error.details.map((el)=>el.message).join(",");
+        throw new ExpressError(400,errMsg);
+    } else{
+        next();
+    }
+}
+module.exports.validateTicket=(req,res,next)=>{
+    let {error}=ticketSchema.validate(req.body);
     if(error){
         let errMsg=error.details.map((el)=>el.message).join(",");
         throw new ExpressError(400,errMsg);

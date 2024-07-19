@@ -18,3 +18,12 @@ module.exports.reviewSchema=joi.object({
     comment:joi.string().required(),
 }).required(),
 });
+
+module.exports.ticketSchema=joi.object({
+    ticket: joi.object({
+    name:joi.string().required(),
+    Quantity:joi.number().required().min(1),
+    entrydate:joi.date().required().min('now').message('Exit date must be greater than or equal to today.'),
+    exitdate:joi.date().required().min('now').message('Exit date must be greater than or equal to today.'),     
+}).required(),
+});

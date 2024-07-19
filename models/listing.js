@@ -1,6 +1,7 @@
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 const Review=require("./review.js");
+const Ticket=require("./ticket.js");
 const User=require("./user.js");
 
 const listingSchema = new Schema({
@@ -62,6 +63,11 @@ const listingSchema = new Schema({
   listingSchema.post("findOneAndDelete",async(listing)=>{
     if(listing){
       await Review.deleteMany({_id:{$in: listing.reviews}});
+    }
+  });
+  listingSchema.post("findOneAndDelete",async(listing)=>{
+    if(listing){
+      await Ticket.deleteMany({_id:{$in: listing.tickets}});
     }
   });
 

@@ -1,3 +1,4 @@
+const e = require("connect-flash");
 const { string } = require("joi");
 const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
@@ -13,6 +14,32 @@ const ticketSchema=new Schema({
     createdAt:{
         type:Date,
         default: Date.now(),
+    },
+    entrydate: {
+        type: Date,
+        required: true,
+        validate: {
+            validator: function(value) {
+                // Compare only the date part
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return value >= today;
+            },
+            message: 'Entry date must be today or in the future.'
+        }
+    },
+    exitdate: {
+        type: Date,
+        required: true,
+        validate: {
+            validator: function(value) {
+                // Compare only the date part
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return value >= today;
+            },
+            message: 'Exit date must be today or in the future.'
+        }
     },
     userdetails:{
         type: Schema.Types.ObjectId,
